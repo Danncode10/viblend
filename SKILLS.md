@@ -1,6 +1,6 @@
-# Skills Reference — Blender 3D Print Vibe Coding
+# Skills Reference — Vibe Blend
 
-Quick reference for Claude when working in this project. All techniques are oriented toward producing printable geometry.
+Quick reference for Claude when working on Vibe Blend. All techniques are oriented toward producing printable geometry.
 
 ---
 

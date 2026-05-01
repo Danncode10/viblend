@@ -1,7 +1,7 @@
-# 3D Project Design Brief
+# Vibe Blend — 3D Project Design Brief
 
 ## Project Name
-<!-- Give your project a name -->
+<!-- Give your design a name (e.g., "Minimalist Phone Stand", "Decorative Vase", etc.) -->
 
 ## Description
 <!-- Describe what you want to create. Be specific about the object, its purpose, and any key features. -->
