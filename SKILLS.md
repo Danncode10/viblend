@@ -58,6 +58,11 @@ print(f"Non-manifold edges: {len(non_manifold)}")  # must be 0
 bm.free()
 ```
 
+### Save to main.blend
+```python
+bpy.ops.wm.save_as_mainfile(filepath=bpy.path.abspath("//main.blend"))
+```
+
 ### Export STL
 ```python
 bpy.ops.object.select_all(action='SELECT')
@@ -112,12 +117,13 @@ bpy.ops.export_mesh.threemf(filepath="//exports/output.3mf")
 
 ```
 1. Describe shape in PROJECT_DESIGN.md
-2. Ask Claude to generate in Blender
+2. Ask Claude to generate in Blender (working in main.blend)
 3. Screenshot → review viewport
 4. "Make it taller", "round that edge", "add a hole here"
 5. Check manifold, wall thickness, overhangs
-6. Export STL → slice in Cura/PrusaSlicer → preview
-7. Print → iterate
+6. Save to main.blend
+7. Export STL → slice in Cura/PrusaSlicer → preview
+8. Print → iterate
 ```
 
 ---

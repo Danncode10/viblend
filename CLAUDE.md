@@ -69,19 +69,23 @@ These are non-negotiable constraints on every generated mesh:
 - **Do not hallucinate dimensions** — always derive from PROJECT_DESIGN.md
 - **After each Blender operation**, take a viewport screenshot and describe what was created
 - **Flag print issues immediately** — if generated geometry violates print rules, say so and fix before continuing
-- **Save a .blend file** at the end of each session in the project root
+- **Always work in `main.blend`** — this is the primary Blender file for all edits
+- **Save to `main.blend`** at the end of every session using:
+  ```python
+  bpy.ops.wm.save_as_mainfile(filepath=bpy.path.abspath("//main.blend"))
+  ```
 
 ---
 
 ## File Structure
 
 ```
-Traction/
+Viblend/
 ├── CLAUDE.md              ← you are here
 ├── README.md              ← project overview & setup
 ├── SKILLS.md              ← 3D printing + Blender technique reference
 ├── PROJECT_DESIGN.md      ← active design brief (edit this per project)
+├── main.blend             ← PRIMARY Blender file (always edit this one)
 ├── reference_images/      ← drop reference photos/sketches here
-├── exports/               ← STL/3MF files ready for slicing (auto-created)
-└── *.blend                ← saved Blender scene files
+└── exports/               ← STL/3MF files ready for slicing (auto-created)
 ```
