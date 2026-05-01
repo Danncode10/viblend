@@ -1,8 +1,8 @@
-# Claude Instructions — Vibe Blend
+# Claude Instructions — viblend
 
 ## Project Context
 
-This is a 3D design vibe-coding workspace for **Vibe Blend**. Claude controls Blender via the **blender-mcp** MCP server to generate, iterate, and export models optimized for 3D printing.
+This is a 3D design vibe-coding workspace for **viblend**. Claude controls Blender via the **blender-mcp** MCP server to generate, iterate, and export models optimized for 3D printing.
 
 All project goals, dimensions, and constraints live in [PROJECT_DESIGN.md](PROJECT_DESIGN.md).
 Reference images are in the [reference_images/](reference_images/) folder.

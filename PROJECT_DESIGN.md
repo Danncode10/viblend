@@ -1,4 +1,4 @@
-# Vibe Blend — 3D Project Design Brief
+# viblend — 3D Project Design Brief
 
 ## Project Name
 <!-- Give your design a name (e.g., "Minimalist Phone Stand", "Decorative Vase", etc.) -->

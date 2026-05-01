@@ -1,6 +1,6 @@
-# Skills Reference — Vibe Blend
+# Skills Reference — viblend
 
-Quick reference for Claude when working on Vibe Blend. All techniques are oriented toward producing printable geometry.
+Quick reference for Claude when working on viblend. All techniques are oriented toward producing printable geometry.
 
 ---
 

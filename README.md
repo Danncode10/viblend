@@ -1,4 +1,4 @@
-# Vibe Blend
+# viblend
 
 A Claude + Blender workflow for designing 3D-printable models through natural language — describe what you want, Claude builds it in Blender, you iterate in plain English.
 
