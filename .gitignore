@@ -1,0 +1,46 @@
+# Blender temporary & backup files
+*.blend1
+*.blend2
+*.blend~
+*.tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE & editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Generated exports (STL/3MF files)
+exports/
+!exports/.gitkeep
+
+# Node modules (if using web tools)
+node_modules/
+package-lock.json
+
+# Local environment files
+.env
+.env.local
