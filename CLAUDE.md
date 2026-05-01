@@ -2,7 +2,9 @@
 
 ## Project Context
 
-This is a 3D design vibe-coding workspace for **viblend**. Claude controls Blender via the **blender-mcp** MCP server to generate, iterate, and export models optimized for 3D printing.
+This is a **3D print modeling** vibe-coding workspace for **viblend**. Claude controls Blender via the **blender-mcp** MCP server to generate, iterate, and export models optimized for 3D printing.
+
+**Scope: 3D print modeling only.** Do not set up animations, rigs, armatures, shape keys, particle systems, physics simulations, render engines (Cycles/EEVEE), or any Blender feature unrelated to producing a printable mesh. Every operation must serve the goal of a clean, manifold, print-ready STL or 3MF.
 
 All project goals, dimensions, and constraints live in [PROJECT_DESIGN.md](PROJECT_DESIGN.md).
 Reference images are in the [reference_images/](reference_images/) folder.
@@ -14,7 +16,7 @@ Reference images are in the [reference_images/](reference_images/) folder.
 1. **Read PROJECT_DESIGN.md first** before generating any geometry.
 2. **Check reference images** in `reference_images/` for visual direction.
 3. **Generate in Blender** using `mcp__blender__execute_blender_code`.
-4. **Screenshot after every significant change** using `mcp__blender__get_viewport_screenshot` to verify visually.
+4. **Screenshot after every significant change** using `mcp__blender__get_viewport_screenshot`. Before screenshotting, set the viewport to **orthographic front view** (Numpad 1 + Numpad 5) for print geometry review, or **3/4 perspective** for overall shape. Never use Cycles or EEVEE renders — solid viewport mode only.
 5. **Iterate** based on feedback — update `PROJECT_DESIGN.md` iteration log after each approved version.
 
 ---
@@ -31,6 +33,7 @@ These are non-negotiable constraints on every generated mesh:
 - **Flat bottom face** — orient model so the largest flat face is on the Z=0 plane
 - **Units**: Millimeters (Blender scene scale = 0.001)
 - **Export formats**: STL or 3MF
+- **Export naming**: `{project_name}_{version}.stl` (e.g., `phone_stand_v1.stl`) — never overwrite previous exports
 
 ---
 

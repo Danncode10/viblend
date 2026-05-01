@@ -63,22 +63,71 @@ bm.free()
 bpy.ops.wm.save_as_mainfile(filepath=bpy.path.abspath("//main.blend"))
 ```
 
-### Export STL
+### Pre-Export Print Checklist (run before every export)
 ```python
+import bpy, bmesh, os
+
+issues = []
+
+for obj in bpy.context.scene.objects:
+    if obj.type != 'MESH':
+        continue
+
+    # 1. Check manifold
+    bm = bmesh.new()
+    bm.from_mesh(obj.data)
+    bm.verts.ensure_lookup_table()
+    non_manifold_edges = [e for e in bm.edges if not e.is_manifold]
+    if non_manifold_edges:
+        issues.append(f"{obj.name}: {len(non_manifold_edges)} non-manifold edge(s)")
+
+    # 2. Check for loose geometry
+    loose_verts = [v for v in bm.verts if not v.link_edges]
+    if loose_verts:
+        issues.append(f"{obj.name}: {len(loose_verts)} loose vertex(es)")
+
+    bm.free()
+
+    # 3. Check transforms are applied
+    if any(abs(s - 1.0) > 0.001 for s in obj.scale):
+        issues.append(f"{obj.name}: unapplied scale {list(obj.scale)} — run Apply > Scale")
+
+    # 4. Check flat bottom (Z min should be at or near 0)
+    world_z = [obj.matrix_world @ v.co for v in obj.data.vertices]
+    z_min = min(v.z for v in world_z)
+    if abs(z_min) > 0.01:
+        issues.append(f"{obj.name}: bottom face not at Z=0 (min Z = {z_min:.3f}mm)")
+
+if issues:
+    print("PRINT ISSUES FOUND:")
+    for i in issues:
+        print(f"  ✗ {i}")
+else:
+    print("All checks passed — safe to export.")
+```
+
+### Export STL (Blender 4.x)
+```python
+import bpy, os
+project_name = "my_model"  # change per project
+version = "v1"
+exports_dir = bpy.path.abspath("//exports/")
+os.makedirs(exports_dir, exist_ok=True)
+
 bpy.ops.object.select_all(action='SELECT')
-bpy.ops.export_mesh.stl(
-    filepath="//exports/output.stl",
-    use_selection=True,
+bpy.ops.wm.stl_export(
+    filepath=os.path.join(exports_dir, f"{project_name}_{version}.stl"),
+    apply_modifiers=True,
+    export_selected_objects=True,
     global_scale=1.0,
     use_scene_unit=True,
-    ascii=False
+    ascii_format=False
 )
 ```
 
-### Export 3MF
-```python
-bpy.ops.export_mesh.threemf(filepath="//exports/output.3mf")
-```
+### Export 3MF (Blender 4.x)
+> Note: Blender 4.x has no built-in `bpy.ops` for 3MF. Use the STL workflow above,
+> then convert in PrusaSlicer (File → Save As → .3mf) or use the `blender-3mf` addon.
 
 ---
 

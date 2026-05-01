@@ -32,6 +32,16 @@
 - `reference_images/style_inspiration.png` — target aesthetic
 -->
 
+## Slicer Settings
+<!-- Record your slicer decisions here so they inform model design choices -->
+- **Slicer**: (e.g., Cura / PrusaSlicer / Bambu Studio)
+- **Profile**: (e.g., 0.2mm Standard, 0.15mm Fine)
+- **Layer Height**: 
+- **Infill Pattern**: (e.g., Gyroid / Grid / Lightning)
+- **Support Strategy**: (e.g., None / Tree supports / Normal supports)
+- **Brim**: (e.g., None / 5mm brim)
+- **Special Notes**: (e.g., pause at layer X for insert, color change at layer Y)
+
 ## Blender Scene Notes
 <!-- Any specific Blender setup instructions for this project -->
 - Units: Millimeters
